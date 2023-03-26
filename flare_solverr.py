@@ -24,7 +24,8 @@ class FSSession:
         self.id = _request(data)['session']
 
     def __del__(self):
-        if self.id is None: return
+        if self.id is None:
+            return
         data = f'{{"cmd": "sessions.destroy", "session": "{self.id}"}}'
         _request(data)
 
